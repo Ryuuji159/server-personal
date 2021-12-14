@@ -20,3 +20,19 @@ services:
     restart: unless-stopped
     volumes: 
       - ./database.sqlite:/usr/app/database.sqlite
+
+  server:
+    image: nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d/
+      - ./certbot/etc/letsencrypt/:/etc/nginx/certs/:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - static
+      - blog
+      - start
+      - shrine
+
