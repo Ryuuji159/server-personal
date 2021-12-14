@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  static:
+    image: tioryuuji159/static-server:latest
+    restart: unless-stopped
+    volumes:
+      - ../static.danielcortes.xyz/files/:/home/static
+    ports:
+      - "3000:3000"
