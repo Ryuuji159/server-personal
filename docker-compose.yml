@@ -5,6 +5,18 @@ services:
     image: tioryuuji159/static-server:latest
     restart: unless-stopped
     volumes:
-      - ../static.danielcortes.xyz/files/:/home/static
-    ports:
-      - "3000:3000"
+      - ./files/:/home/static
+
+  blog:
+    image: tioryuuji159/blog:latest
+    restart: unless-stopped
+
+  start:
+    image: tioryuuji159/start:latest
+    restart: unless-stopped
+
+  shrine:
+    image: tioryuuji159/zenithar-shrine:latest
+    restart: unless-stopped
+    volumes: 
+      - ./database.sqlite:/usr/app/database.sqlite
