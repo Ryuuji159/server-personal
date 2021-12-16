@@ -1,2 +1,5 @@
 files/
 database.sqlite
+certbot/digitalocean.ini
+certbot/etc/
+certbot/var/
